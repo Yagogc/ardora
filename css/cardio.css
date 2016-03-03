@@ -647,11 +647,26 @@ section {
 	margin-top: 50px;
 }
 
-.owl-twitter i.icon {
-	font-size: 36px;
-	margin-bottom: 60px;
-	color: white;
+.owl-gallery {
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.07);
 }
+.owl-gallery img {
+	display: block;
+  width: 100%;
+  height: auto;
+}
+
+#bar{
+  width: 0%;
+  max-width: 100%;
+  height: 4px;
+  background: #033D85;
+}
+#progressBar{
+  width: 100%;
+  background: #EDEDED;
+}
+
 /* Footer */
 
 footer {
