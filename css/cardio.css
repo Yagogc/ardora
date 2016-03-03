@@ -1,11 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 
-/*MAP*/
-#map {
-	padding: 0;
-}
-
-
 body {
 	font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -1117,7 +1111,8 @@ footer .social-footer li:hover a {
 	}
 }
 
-
-
-
-
+/*MAP*/
+#map {
+	padding: 0;
+	max-height: 450px;
+}
