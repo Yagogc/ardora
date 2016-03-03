@@ -5,6 +5,15 @@ jQuery(function($) {
 	var owlPricing;
 	var ratio = 2;
 
+	  var time = 5; // time in seconds
+
+	  var $progressBar,
+	      $bar,
+	      $elem,
+	      isPause,
+	      tick,
+	      percentTime;
+
 	// Window Load
 	$(window).load(function() {
 		// Preloader
@@ -40,10 +49,99 @@ jQuery(function($) {
 			singleItem: true,
 			pagination: true
 		});
-		$('.owl-twitter').owlCarousel({
-			singleItem: true,
-			pagination: true
+
+		$('#owl-gallery').owlCarousel({
+	    navigation: true,
+	    navigationText: [
+	      "<i class='fa fa-chevron-left fa-3x'></i>",
+	      "<i class='fa fa-chevron-right fa-3x'></i>"
+	      ],
+      slideSpeed : 500,
+      paginationSpeed : 500,
+      singleItem : true,
+      autoHeight : true,
+      pagination : false,
+      lazyLoad : true,
+      autoPlay: true,
+      // transitionStyle : "fade",
+      // afterInit : progressBar,
+      // afterMove : moved,
+      // startDragging : pauseOnDragging,
+	    beforeInit :  randomSlide
 		});
+
+	  //Sort random function
+	  function randomSlide(elem){
+	    elem.children().sort(function(){
+	        return Math.round(Math.random()) - 0.5;
+	    }).each(function(){
+	      $(this).appendTo(elem);
+	    });
+	  }
+
+    //Init progressBar where elem is $("#owl-demo")
+    function progressBar(elem){
+      $elem = elem;
+      //build progress bar elements
+      buildProgressBar();
+      //start counting
+      start();
+    }
+
+    //create div#progressBar and div#bar then prepend to $("#owl-demo")
+    function buildProgressBar(){
+      $progressBar = $("<div>",{
+        id:"progressBar"
+      });
+      $bar = $("<div>",{
+        id:"bar"
+      });
+      $progressBar.append($bar).prependTo($elem);
+    }
+
+    function start() {
+      //reset timer
+      percentTime = 0;
+      isPause = false;
+      //run interval every 0.01 second
+      tick = setInterval(tickInterval, 10);
+
+    };
+
+    function tickInterval() {
+      if(isPause === false){
+        percentTime += 1 / time;
+        $bar.css({
+           width: percentTime+"%"
+         });
+        //if percentTime is equal or greater than 100
+        if(percentTime >= 100){
+          //slide to next item
+          $elem.trigger('owl.next')
+        }
+      }
+    }
+
+    //pause while dragging
+    function pauseOnDragging(){
+      isPause = true;
+    }
+
+    //moved callback
+    function moved(){
+      //clear interval
+      clearTimeout(tick);
+      //start again
+      start();
+    }
+
+    //uncomment this to make pause on mouseover
+    // $elem.on('mouseover',function(){
+    //   isPause = true;
+    // })
+    // $elem.on('mouseout',function(){
+    //   isPause = false;
+    // })
 
 		// Navbar Init
 		$('nav').addClass('original').clone().insertAfter('nav').addClass('navbar-fixed-top').css('position', 'fixed').css('top', '0').css('margin-top', '0').removeClass('original');
@@ -75,6 +173,7 @@ jQuery(function($) {
 			filter: ':not(.btn)'
 		});
 	});
+
 	// Window Scroll
 	function onScroll() {
 		if ($(window).scrollTop() > 50) {
@@ -181,7 +280,6 @@ var onMapMouseleaveHandler = function (event) {
 var onMapClickHandler = function (event) {
   var that = $(this);
 
-  console.log('click!');
 
   // Disable the click handler until the user leaves the map area
   that.off('click', onMapClickHandler);
@@ -195,7 +293,6 @@ var onMapClickHandler = function (event) {
 
 // Enable map zooming with mouse scroll when the user clicks the map
 $('#map').on('click', onMapClickHandler);
-console.log('hey');
 
 
 
