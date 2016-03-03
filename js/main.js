@@ -55,13 +55,22 @@ jQuery(function($) {
       paginationSpeed : 500,
       singleItem : true,
       autoHeight : true,
-      pagination: false,
+      pagination : false,
       lazyLoad : true,
       afterInit : progressBar,
       afterMove : moved,
-      startDragging : pauseOnDragging
-
+      startDragging : pauseOnDragging,
+	    beforeInit :  randomSlide
 		});
+
+	  //Sort random function
+	  function randomSlide(elem){
+	    elem.children().sort(function(){
+	        return Math.round(Math.random()) - 0.5;
+	    }).each(function(){
+	      $(this).appendTo(elem);
+	    });
+	  }
 
     //Init progressBar where elem is $("#owl-demo")
     function progressBar(elem){
