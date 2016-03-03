@@ -656,6 +656,20 @@ section {
   height: auto;
 }
 
+.owl-theme .owl-controls .owl-buttons div {
+	position: absolute;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev{
+  left: 2%;
+  top: 50%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next{
+  right: 2%;
+  top: 50%;
+}
+
 #bar{
   width: 0%;
   max-width: 100%;
