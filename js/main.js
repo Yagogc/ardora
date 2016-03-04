@@ -60,10 +60,22 @@ jQuery(function($) {
       slideSpeed : 500,
       paginationSpeed : 500,
       singleItem : true,
-      autoHeight : true,
       pagination : false,
       lazyLoad : true,
-      autoPlay: true,
+	    beforeInit :  randomSlide
+		});
+
+		$('#owl-ardora').owlCarousel({
+	    navigation: true,
+	    navigationText: [
+	      "<i class='fa fa-chevron-left fa-3x'></i>",
+	      "<i class='fa fa-chevron-right fa-3x'></i>"
+	      ],
+      slideSpeed : 500,
+      paginationSpeed : 500,
+      singleItem : true,
+      pagination : false,
+      lazyLoad : true,
 	    beforeInit :  randomSlide
 		});
 
@@ -279,6 +291,7 @@ jQuery(function($) {
 	$('.modal-popup .close-link').click(function(event){
 		event.preventDefault();
 		$('#modal1').modal('hide');
+		$('#modal2').modal('hide');
 	});
 
 	$(window).on("resize", function() {
