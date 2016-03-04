@@ -20,7 +20,7 @@ jQuery(function($) {
 		$('.intro-tables, .parallax, header').css('opacity', '0');
 		$('.preloader').addClass('animated fadeOut').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 			$('.preloader').hide();
-			new Vivus('ardorasvg', {tyoe: 'async', duration: 1500, delay: 1000});
+			new Vivus('ardorasvg', {type: 'delayed', duration: 1500});
 			$('.parallax, header').addClass('animated fadeIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 				$('.intro-tables').addClass('animated fadeInUp').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend');
 			});
@@ -294,6 +294,8 @@ jQuery(function($) {
 
 	// Enable map zooming with mouse scroll when the user clicks the map
 	$('#map').on('click', onMapClickHandler);
+
+	$('#desc-ardora').popover({trigger: 'hover'});
 
 
 });
