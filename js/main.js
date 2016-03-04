@@ -20,6 +20,7 @@ jQuery(function($) {
 		$('.intro-tables, .parallax, header').css('opacity', '0');
 		$('.preloader').addClass('animated fadeOut').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 			$('.preloader').hide();
+			new Vivus('ardorasvg', {tyoe: 'async', duration: 1500, delay: 1000});
 			$('.parallax, header').addClass('animated fadeIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 				$('.intro-tables').addClass('animated fadeInUp').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend');
 			});
@@ -268,32 +269,31 @@ jQuery(function($) {
 		$('.modal:visible').each(centerModal);
 	});
 
-// Disable scroll zooming and bind back the click event
-var onMapMouseleaveHandler = function (event) {
-  var that = $(this);
+	// Disable scroll zooming and bind back the click event
+	var onMapMouseleaveHandler = function (event) {
+	  var that = $(this);
 
-  that.on('click', onMapClickHandler);
-  that.off('mouseleave', onMapMouseleaveHandler);
-  that.find('iframe').css("pointer-events", "none");
-}
+	  that.on('click', onMapClickHandler);
+	  that.off('mouseleave', onMapMouseleaveHandler);
+	  that.find('iframe').css("pointer-events", "none");
+	}
 
-var onMapClickHandler = function (event) {
-  var that = $(this);
+	var onMapClickHandler = function (event) {
+	  var that = $(this);
 
 
-  // Disable the click handler until the user leaves the map area
-  that.off('click', onMapClickHandler);
+	  // Disable the click handler until the user leaves the map area
+	  that.off('click', onMapClickHandler);
 
-  // Enable scrolling zoom
-  that.find('iframe').css("pointer-events", "auto");
+	  // Enable scrolling zoom
+	  that.find('iframe').css("pointer-events", "auto");
 
-  // Handle the mouse leave event
-  that.on('mouseleave', onMapMouseleaveHandler);
-}
+	  // Handle the mouse leave event
+	  that.on('mouseleave', onMapMouseleaveHandler);
+	}
 
-// Enable map zooming with mouse scroll when the user clicks the map
-$('#map').on('click', onMapClickHandler);
-
+	// Enable map zooming with mouse scroll when the user clicks the map
+	$('#map').on('click', onMapClickHandler);
 
 
 });
