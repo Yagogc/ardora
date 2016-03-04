@@ -51,6 +51,22 @@ jQuery(function($) {
 			pagination: true
 		});
 
+		$('#owl-palmira').owlCarousel({
+	    navigation: true,
+	    navigationText: [
+	      "<i class='fa fa-chevron-left fa-3x'></i>",
+	      "<i class='fa fa-chevron-right fa-3x'></i>"
+	      ],
+      slideSpeed : 500,
+      paginationSpeed : 500,
+      singleItem : true,
+      autoHeight : true,
+      pagination : false,
+      lazyLoad : true,
+      autoPlay: true,
+	    beforeInit :  randomSlide
+		});
+
 		$('#owl-gallery').owlCarousel({
 	    navigation: true,
 	    navigationText: [
