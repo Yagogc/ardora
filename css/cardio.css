@@ -1145,3 +1145,7 @@ footer .social-footer li:hover a {
 	padding: 0;
 	max-height: 450px;
 }
+
+.info-boxes {
+	display: none;
+}
