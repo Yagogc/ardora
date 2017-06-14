@@ -66,17 +66,17 @@ jQuery(function($) {
    });
 
 		$('#owl-ardora').owlCarousel({
-     navigation: true,
-     navigationText: [
-     "<i class='fa fa-chevron-left fa-3x'></i>",
-     "<i class='fa fa-chevron-right fa-3x'></i>"
-     ],
-     slideSpeed : 500,
-     paginationSpeed : 500,
-     singleItem : true,
-     pagination : false,
-     lazyLoad : true,
-     beforeInit :  randomSlide
+			navigation: true,
+			navigationText: [
+			"<i class='fa fa-chevron-left fa-3x'></i>",
+			"<i class='fa fa-chevron-right fa-3x'></i>"
+			],
+			slideSpeed : 500,
+			paginationSpeed : 500,
+			singleItem : true,
+			pagination : false,
+			lazyLoad : true,
+			beforeInit :  randomSlide
    });
 
 		$('#owl-gallery').owlCarousel({
