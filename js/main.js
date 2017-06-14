@@ -8,11 +8,11 @@ jQuery(function($) {
 	  var time = 5; // time in seconds
 
 	  var $progressBar,
-	      $bar,
-	      $elem,
-	      isPause,
-	      tick,
-	      percentTime;
+   $bar,
+   $elem,
+   isPause,
+   tick,
+   percentTime;
 
 	// Window Load
 	$(window).load(function() {
@@ -52,61 +52,61 @@ jQuery(function($) {
 		});
 
 		$('#owl-palmira').owlCarousel({
-	    navigation: true,
-	    navigationText: [
-	      "<i class='fa fa-chevron-left fa-3x'></i>",
-	      "<i class='fa fa-chevron-right fa-3x'></i>"
-	      ],
-      slideSpeed : 500,
-      paginationSpeed : 500,
-      singleItem : true,
-      pagination : false,
-      lazyLoad : true,
-	    beforeInit :  randomSlide
-		});
+     navigation: true,
+     navigationText: [
+     "<i class='fa fa-chevron-left fa-3x'></i>",
+     "<i class='fa fa-chevron-right fa-3x'></i>"
+     ],
+     slideSpeed : 500,
+     paginationSpeed : 500,
+     singleItem : true,
+     pagination : false,
+     lazyLoad : true,
+     beforeInit :  randomSlide
+   });
 
 		$('#owl-ardora').owlCarousel({
-	    navigation: true,
-	    navigationText: [
-	      "<i class='fa fa-chevron-left fa-3x'></i>",
-	      "<i class='fa fa-chevron-right fa-3x'></i>"
-	      ],
-      slideSpeed : 500,
-      paginationSpeed : 500,
-      singleItem : true,
-      pagination : false,
-      lazyLoad : true,
-	    beforeInit :  randomSlide
-		});
+     navigation: true,
+     navigationText: [
+     "<i class='fa fa-chevron-left fa-3x'></i>",
+     "<i class='fa fa-chevron-right fa-3x'></i>"
+     ],
+     slideSpeed : 500,
+     paginationSpeed : 500,
+     singleItem : true,
+     pagination : false,
+     lazyLoad : true,
+     beforeInit :  randomSlide
+   });
 
 		$('#owl-gallery').owlCarousel({
-	    navigation: true,
-	    navigationText: [
-	      "<i class='fa fa-chevron-left fa-3x'></i>",
-	      "<i class='fa fa-chevron-right fa-3x'></i>"
-	      ],
-      slideSpeed : 500,
-      paginationSpeed : 500,
-      singleItem : true,
-      autoHeight : true,
-      pagination : false,
-      lazyLoad : true,
-      autoPlay: true,
+     navigation: true,
+     navigationText: [
+     "<i class='fa fa-chevron-left fa-3x'></i>",
+     "<i class='fa fa-chevron-right fa-3x'></i>"
+     ],
+     slideSpeed : 500,
+     paginationSpeed : 500,
+     singleItem : true,
+     autoHeight : true,
+     pagination : false,
+     lazyLoad : true,
+     autoPlay: true,
       // transitionStyle : "fade",
       // afterInit : progressBar,
       // afterMove : moved,
       // startDragging : pauseOnDragging,
-	    beforeInit :  randomSlide
-		});
+      beforeInit :  randomSlide
+    });
 
 	  //Sort random function
 	  function randomSlide(elem){
-	    elem.children().sort(function(){
-	        return Math.round(Math.random()) - 0.5;
-	    }).each(function(){
-	      $(this).appendTo(elem);
-	    });
-	  }
+     elem.children().sort(function(){
+       return Math.round(Math.random()) - 0.5;
+     }).each(function(){
+       $(this).appendTo(elem);
+     });
+   }
 
     //Init progressBar where elem is $("#owl-demo")
     function progressBar(elem){
@@ -141,8 +141,8 @@ jQuery(function($) {
       if(isPause === false){
         percentTime += 1 / time;
         $bar.css({
-           width: percentTime+"%"
-         });
+         width: percentTime+"%"
+       });
         //if percentTime is equal or greater than 100
         if(percentTime >= 100){
           //slide to next item
@@ -276,8 +276,8 @@ jQuery(function($) {
 	function centerModal() {
 		$(this).css('display', 'block');
 		var $dialog = $(this).find(".modal-dialog"),
-			offset = ($(window).height() - $dialog.height()) / 2,
-			bottomMargin = parseInt($dialog.css('marginBottom'), 10);
+   offset = ($(window).height() - $dialog.height()) / 2,
+   bottomMargin = parseInt($dialog.css('marginBottom'), 10);
 
 		// Make sure you don't hide the top part of the modal w/ a negative margin
 		// if it's longer than the screen height, and keep the margin equal to
@@ -300,15 +300,15 @@ jQuery(function($) {
 
 	// Disable scroll zooming and bind back the click event
 	var onMapMouseleaveHandler = function (event) {
-	  var that = $(this);
+   var that = $(this);
 
-	  that.on('click', onMapClickHandler);
-	  that.off('mouseleave', onMapMouseleaveHandler);
-	  that.find('iframe').css("pointer-events", "none");
-	}
+   that.on('click', onMapClickHandler);
+   that.off('mouseleave', onMapMouseleaveHandler);
+   that.find('iframe').css("pointer-events", "none");
+ }
 
-	var onMapClickHandler = function (event) {
-	  var that = $(this);
+ var onMapClickHandler = function (event) {
+   var that = $(this);
 
 
 	  // Disable the click handler until the user leaves the map area
@@ -326,5 +326,15 @@ jQuery(function($) {
 
 	$('#desc-ardora').popover({trigger: 'hover'});
 
+  function hoverService(e) {
+    $(".service").toggleClass("hover");
+  };
+
+  $('.services')
+   .bind('enterviewport', hoverService)
+   .bind('leaveviewport', hoverService)
+
+   // Initialize the plug-in
+   .bullseye({offsetTop: 300});
 
 });

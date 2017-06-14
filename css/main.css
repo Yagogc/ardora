@@ -486,15 +486,27 @@ section {
 	width: 40px;
 }
 
-.service:hover {
+// .service:hover {
+// 	border-color: #00a8ff;
+// }
+
+// .service:hover .icon-holder {
+// 	top: -30px;
+// }
+
+// .service:hover .heading {
+// 	top: -30px;
+// }
+
+.service.hover {
 	border-color: #00a8ff;
 }
 
-.service:hover .icon-holder {
+.service.hover .icon-holder {
 	top: -30px;
 }
 
-.service:hover .heading {
+.service.hover .heading {
 	top: -30px;
 }
 
@@ -509,7 +521,13 @@ section {
 	transform: scale(0);
 }
 
-.service:hover .description {
+// .service:hover .description {
+// 	opacity: 1;
+// 	-webkit-transform: scale(1);
+// 	-ms-transform: scale(1);
+// 	transform: scale(1);
+// }
+.service.hover .description {
 	opacity: 1;
 	-webkit-transform: scale(1);
 	-ms-transform: scale(1);
@@ -1107,10 +1125,12 @@ footer .social-footer li:hover a {
 	.pricings .pricing .box-main,
 	.pricings .pricing .box-second {
 		left: 0;
-		width: 100%;
-		padding: 50px 50px 0;
-		text-align: left;
+		width: 50%;
+		padding: 50px 50px 0 50px;
+		text-align: center;
 		background: #00a8ff;
+		height: auto;
+		min-width: 360px;
 	}
 	.pricings .pricing .box-main.active {
 		background: #00a8ff;
@@ -1121,6 +1141,9 @@ footer .social-footer li:hover a {
 	.pricings .pricing .box-second {
 		position: relative;
 		opacity: 1;
+		padding-left: 100px;
+		padding-bottom: 50px;
+		padding-top: 25px;
 	}
 	.popup-form {
 		width: 100%;
@@ -1141,7 +1164,7 @@ footer .social-footer li:hover a {
 		display: none;
 	}
 	.pricings .pricing .box-second {
-		padding-top: 0;
+		// padding-top: 0;
 	}
 }
 
